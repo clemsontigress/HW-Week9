@@ -17,35 +17,21 @@ function promptUser() {
             type: "input",
             message: "Enter your GitHub username:",
             name: "username"
-        },
-        {
-            type: "input",
-            message: "Enter your Project Title:",
-            name: "title"
-        },
-        {
-            type: "input",
-            message: "Enter your Project Description:",
-            name: "description"
-        }
-
-    ])
+        }  
+    ]).then(answers => {console.log(answers.username)})
 };
 
 
-async function gitSearch() {
-    try {
-        const queryUrl = `https://api.github.com/search/users?q=${response.username}`;
-        const response = await axios.get(queryUrl);
-        console.log(repsonse)
-    }
-    catch (err) {
-        console.log(err);
-    };
+function gitSearch() {
+    //try {
+        const queryUrl = `https://api.github.com/users/clemsontigress`;
+        axios.get(queryUrl).then(response => {console.log(response.data.avatar_url)})
+        
+    //}
+    //catch (err) {
+        //console.log(err);
+    //};
 };
-
-
-
 
 
 //function init() {
@@ -71,4 +57,4 @@ async function gitSearch() {
 
 //init();
 promptUser();
-gitSearch(response);
+gitSearch();
