@@ -1,6 +1,9 @@
-function generateMarkdown(data) {
+function generateMarkdown(response, answers) {
   return `
-# ${data.title}
+
+  ![Profile Image](${response.data.avatar_url})
+
+# ${answers.title}
 
 `;
 }
