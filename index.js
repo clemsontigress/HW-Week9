@@ -37,7 +37,27 @@ function promptUser() {
             type: "input",
             message: "Enter your Project Title:",
             name: "title"
-        }    
+        }, 
+        {
+            type: "input",
+            message: "Enter your Project Description",
+            name: "description"
+        },
+        {
+            type: "input",
+            message: "How do you install your app?",
+            name: "installation"
+        },
+        {
+            type: "input",
+            message: "What is the usage?",
+            name: "usage"
+        },
+        {
+            type: "input",
+            message: "How do you test it?",
+            name: "test"
+        }   
     ])
 };
 
