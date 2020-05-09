@@ -4,7 +4,7 @@ const util = require("util")
 const axios = require("axios")
 const markDown = require("./utils/generateMarkdown")
 
-const asyncWriteFile = util.promisify(fs.writeFile)
+const writeFileAsync = util.promisify(fs.writeFile);
 
 //GIVEN the developer has a GitHub profile and a repository
 //WHEN prompted for the developer's GitHub username and repo specific information
@@ -72,10 +72,10 @@ async function init() {
     const response = await gitSearch(answers);
         //console.log(response.data)
 
-    markDown(response, answers)
     //write to file
-    //await asyncWriteFile("readme.md", data);
-    //log success
+    const markDownText = markDown(response, answers)
+    await writeFileAsync("readme.md", markDownText);
+    console.log("success!")
     }
 
     catch(err) {console.log(err);
